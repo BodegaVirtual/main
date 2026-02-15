@@ -1,17 +1,50 @@
-[Bodega Virtual]
-The modular solution for [Briefly describe what your app does].
+# Bodega Virtual
 
-This repository serves as the central hub and documentation for the [Project Name] ecosystem. To provide maximum flexibility and scalability, the application is architected into three independent projects.While each project is maintained in its own repository and can function independently, all three components are required to run the full production environment.
+**Bodega Virtual** is a barebones online store project. It is comprised of three separate repositories designed to be independently built and deployed, while remaining logically dependent on each other to provide a full solution.
 
-💻 The Ecosystem Architecture
-ComponentRepositoryRoleCore API[Link to Repo A]The backend engine handling logic and data.Web Interface[Link to Repo B]The frontend UI for user interaction.Background Worker[Link to Repo C]Handles asynchronous tasks and processing.Why separate repositories?Each component is designed to be decoupled. This allows you to:Scale the API independently from the Frontend.Swap out the Web Interface for a mobile app without touching the backend.Use the Core API as a standalone service for other integrations.
+The project is designed for deployment in **AWS** and includes integrated support for the **PayPal** payment system.
 
-🚀 Getting Started (The Full Solution)
-To get the entire suite up and running locally, we recommend using the orchestration script provided in this repository:Clone this umbrella repo: git clone [URL]Initialize submodules (if applicable): git submodule update --init --recursiveRun with Docker: ```bashdocker-compose up --build*Note: Individual setup instructions for each component can be found in their respective repositories.*
+---
 
-⚖️ License & Liability
-This project and its constituent repositories are licensed under the Apache License 2.0.Important Note on Liability: > This software is provided by the copyright holders and contributors "AS IS" and ANY EXPRESS OR IMPLIED WARRANTIES, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose are DISCLAIMED.In no event shall the author or contributors be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, loss of use, data, or profits; or business interruption) however caused and on any theory of liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of the use of this software, even if advised of the possibility of such damage.
+## 🏗 Project Ecosystem
 
-🤝 Contributing
-We welcome contributions to any of the three modules! Please see the CONTRIBUTING.md file in the specific repository you wish to help with.
+| Component | Repository | Description |
+| :--- | :--- | :--- |
+| **Backend** | [graphql-product-service](https://github.com/BodegaVirtual/graphql-product-service) | Responsible for data storage creation and access. |
+| **Admin UI** | [product-admin-app](https://github.com/BodegaVirtual/product-admin-app) | User interface for the owner to administer the store. |
+| **Customer UI** | [product-web-app](https://github.com/BodegaVirtual/product-web-app) | The online store interface for customer interaction. |
 
+---
+
+## 🛠 Component Breakdown
+
+### 1. GraphQL Product Service
+This backend project handles the core infrastructure. It utilizes an **AWS CloudFormation script** to provision data storage tables, lambda functions, and access configurations.
+
+### 2. Product Admin App
+This application allows the project owner to manage the store operations:
+* **Product Management**: Create products and organize them into specific categories.
+* **Sales Tracking**: Monitor and track sales performance across the store.
+
+### 3. Product Web App
+This is the customer-facing storefront:
+* **Shopping**: Customers can view products, add them to a shopping cart, and perform purchases.
+* **History**: Customers can access their current shopping cart and view their full purchase history.
+
+---
+
+## 🌐 Demo Environments
+Use the following credentials to test the live demo applications:
+
+| Application | URL | User | Password |
+| :--- | :--- | :--- | :--- |
+| **Admin App** | https://admindemo.bolito.co/ | `test@test.co` | `Demo1234` |
+| **Customer App** | https://appdemo.bolito.co/ | N/A | N/A |
+
+---
+
+## ⚖️ License & Liability
+This project is licensed under the **Apache License 2.0**.
+
+### Limitation of Liability
+This software is provided "AS IS", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability or fitness for a particular purpose. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the software or the use or other dealings in the software.
